@@ -1,7 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 const Clients = () => {
+  const navigate = useNavigate()
+  
   const clientLogos = [
     { name: 'Maruti Suzuki', logo: './images/Company1.jpg' },
     { name: 'BARD', logo: './Client/BARD.png' },
@@ -93,7 +96,10 @@ const Clients = () => {
               We foster a collaborative environment where you can learn from the best and
               contribute your unique talents.
             </p>
-            <button className="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition duration-300">
+            <button 
+              onClick={() => navigate('/career')}
+              className="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition duration-300"
+            >
               Explore Careers
             </button>
           </div>

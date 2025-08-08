@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
-const IndustrialAutomation = () => {
+const RoboticAutomation = () => {
   // Background images for hero section
   const heroImages = [
-    'https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80', // Industrial factory
-    'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80', // Control room
-    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80', // Automation equipment
-    'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80', // Manufacturing line
+    'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80', // Industrial robot
+    'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80', // Robotic arm
+    'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80', // Robot assembly
+    'https://images.unsplash.com/photo-1581091870616-3c9ce8aef7e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80', // Automated production
   ]
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -24,113 +24,148 @@ const IndustrialAutomation = () => {
     return () => clearInterval(interval)
   }, [heroImages.length])
 
-  const automationServices = [
+  const roboticServices = [
     {
-      title: 'PLC Programming & Integration',
-      description: 'Comprehensive PLC programming services for major brands including Siemens, Allen Bradley, Mitsubishi, and Omron.',
-      features: ['Custom Logic Development', 'System Integration', 'Fault Diagnostics', 'Performance Optimization'],
+      title: 'Industrial Robot Integration',
+      description: 'Complete robot integration services including 6-axis articulated robots, SCARA robots, and collaborative robots (cobots).',
+      features: ['Robot Programming', 'End-of-Arm Tooling', 'Safety Integration', 'Process Optimization'],
+      icon: '🤖',
+      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      title: 'Automated Assembly Systems',
+      description: 'Custom automated assembly lines for high-volume production with precision and consistency.',
+      features: ['Assembly Line Design', 'Quality Control Integration', 'Flexible Automation', 'Cycle Time Optimization'],
       icon: '🔧',
-      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'SCADA & HMI Development',
-      description: 'Advanced SCADA systems and Human Machine Interface solutions for complete process visualization and control.',
-      features: ['Real-time Monitoring', 'Data Logging', 'Alarm Management', 'Remote Access'],
-      icon: '🖥️',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      title: 'Material Handling Automation',
+      description: 'Automated material handling solutions including AGVs, conveyor systems, and robotic palletizers.',
+      features: ['AGV Systems', 'Robotic Palletizing', 'Conveyor Integration', 'Warehouse Automation'],
+      icon: '📦',
+      image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'Industrial Networking',
-      description: 'Complete industrial communication networks including Ethernet/IP, Profinet, DeviceNet, and Modbus protocols.',
-      features: ['Network Design', 'Protocol Implementation', 'Security Configuration', 'Redundancy Planning'],
-      icon: '🌐',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-    },
-    {
-      title: 'Motion Control Systems',
-      description: 'Precision motion control solutions with servo drives, stepper motors, and advanced positioning systems.',
-      features: ['Servo Configuration', 'Path Planning', 'Speed Control', 'Synchronization'],
+      title: 'Welding Automation',
+      description: 'Robotic welding systems for consistent, high-quality welds with improved safety and productivity.',
+      features: ['MIG/TIG Welding', 'Seam Tracking', 'Adaptive Control', 'Quality Monitoring'],
       icon: '⚡',
-      image: 'https://images.unsplash.com/photo-1565814261596-d6e17cb18b0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-    },
-    {
-      title: 'Safety Systems',
-      description: 'Industrial safety solutions including safety PLCs, light curtains, emergency stops, and safety networks.',
-      features: ['Risk Assessment', 'Safety Circuit Design', 'Validation Testing', 'Compliance Certification'],
-      icon: '🛡️',
       image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'Vision Systems',
-      description: 'Machine vision solutions for quality control, inspection, and robotic guidance applications.',
-      features: ['Image Processing', 'Pattern Recognition', 'Measurement Systems', 'Quality Inspection'],
-      icon: '👁️',
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      title: 'Pick & Place Solutions',
+      description: 'High-speed pick and place systems for packaging, sorting, and material handling applications.',
+      features: ['Vision Guidance', 'Delta Robots', 'Vacuum Handling', 'Speed Optimization'],
+      icon: '🎯',
+      image: 'https://images.unsplash.com/photo-1581091870616-3c9ce8aef7e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      title: 'Collaborative Robotics',
+      description: 'Safe human-robot collaboration solutions for flexible manufacturing and assembly operations.',
+      features: ['Safety Monitoring', 'Force Limiting', 'Easy Programming', 'Flexible Deployment'],
+      icon: '🤝',
+      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     }
   ]
 
-  const industries = [
+  const robotTypes = [
     { 
-      name: 'Automotive Manufacturing', 
-      icon: '🚗',
-      image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+      name: 'Articulated Robots', 
+      icon: '🦾',
+      description: '6-axis robots for complex movements',
+      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     },
     { 
-      name: 'Food & Beverage', 
-      icon: '🍕',
-      image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+      name: 'SCARA Robots', 
+      icon: '🔄',
+      description: 'High-speed assembly applications',
+      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     },
     { 
-      name: 'Pharmaceutical', 
-      icon: '💊',
-      image: 'https://images.unsplash.com/photo-1582560475093-ba66accbc424?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+      name: 'Delta Robots', 
+      icon: '⚡',
+      description: 'Ultra-fast pick and place operations',
+      image: 'https://images.unsplash.com/photo-1581091870616-3c9ce8aef7e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     },
     { 
-      name: 'Oil & Gas', 
-      icon: '⛽',
+      name: 'Collaborative Robots', 
+      icon: '🤝',
+      description: 'Safe human-robot interaction',
+      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    },
+    { 
+      name: 'Cartesian Robots', 
+      icon: '📏',
+      description: 'Linear motion applications',
       image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     },
     { 
-      name: 'Water Treatment', 
-      icon: '💧',
-      image: 'https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+      name: 'Cylindrical Robots', 
+      icon: '🎯',
+      description: 'Rotary and linear movements',
+      image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     },
     { 
-      name: 'Mining & Metals', 
-      icon: '⛏️',
+      name: 'Mobile Robots (AGV)', 
+      icon: '🚗',
+      description: 'Autonomous material transport',
       image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     },
     { 
-      name: 'Textiles', 
-      icon: '🧵',
-      image: 'https://images.unsplash.com/photo-1586717799252-bd134ad00e26?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-    },
-    { 
-      name: 'Power Generation', 
-      icon: '⚡',
-      image: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+      name: 'Palletizing Robots', 
+      icon: '📦',
+      description: 'Automated packaging solutions',
+      image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     }
   ]
 
-  const technologies = [
-    'Siemens S7-1500/1200',
-    'Allen Bradley ControlLogix',
-    'Mitsubishi Q Series',
-    'Omron CJ/CP Series',
-    'WinCC/Factory Talk',
-    'Wonderware InTouch',
-    'Ignition SCADA',
-    'Ethernet/IP',
-    'Profinet IO',
-    'Modbus TCP/RTU',
-    'DeviceNet',
-    'AS-Interface'
+  const robotBrands = [
+    'ABB IRB Series',
+    'KUKA KR Series',
+    'Fanuc R-2000i',
+    'Yaskawa Motoman',
+    'Universal Robots UR',
+    'Kawasaki RS Series',
+    'Epson C4/G10',
+    'Stäubli TX Series',
+    'Omron TM Series',
+    'Denso VS Series',
+    'Mitsubishi RV Series',
+    'Nachi MZ Series'
+  ]
+
+  const applications = [
+    {
+      title: 'Automotive Manufacturing',
+      description: 'Robotic welding, painting, and assembly for automotive production lines.',
+      icon: '🚗',
+      features: ['Body Welding', 'Paint Application', 'Engine Assembly', 'Quality Inspection']
+    },
+    {
+      title: 'Electronics Assembly',
+      description: 'Precision assembly and testing of electronic components and circuit boards.',
+      icon: '💻',
+      features: ['PCB Assembly', 'Component Placement', 'Testing & Inspection', 'Packaging']
+    },
+    {
+      title: 'Food & Packaging',
+      description: 'Hygienic robotic solutions for food processing and packaging operations.',
+      icon: '🍕',
+      features: ['Food Handling', 'Packaging Lines', 'Palletizing', 'Quality Control']
+    },
+    {
+      title: 'Pharmaceutical',
+      description: 'Clean room robotics for pharmaceutical manufacturing and packaging.',
+      icon: '💊',
+      features: ['Sterile Handling', 'Precise Dispensing', 'Packaging', 'Batch Tracking']
+    }
   ]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-r from-purple-900 via-purple-800 to-blue-900 overflow-hidden">
         {/* Sliding Background Images */}
         <div className="absolute inset-0">
           <AnimatePresence mode="wait">
@@ -171,7 +206,7 @@ const IndustrialAutomation = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Industrial <span className="text-yellow-400">Automation</span>
+            Robotic <span className="text-yellow-400">Automation</span>
           </motion.h1>
           <motion.p 
             className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto"
@@ -179,8 +214,8 @@ const IndustrialAutomation = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            Transforming industries through cutting-edge automation solutions, intelligent control systems, 
-            and seamless integration of advanced technologies.
+            Revolutionizing manufacturing with advanced robotic solutions, intelligent automation systems, 
+            and seamless human-robot collaboration for enhanced productivity and precision.
           </motion.p>
         </div>
       </section>
@@ -196,16 +231,16 @@ const IndustrialAutomation = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Automation Services
+              Robotic Solutions
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Comprehensive industrial automation solutions designed to enhance productivity, 
-              ensure safety, and optimize operational efficiency.
+              Comprehensive robotic automation services designed to transform your manufacturing processes 
+              with precision, efficiency, and intelligent automation.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {automationServices.map((service, index) => (
+            {roboticServices.map((service, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -237,7 +272,7 @@ const IndustrialAutomation = () => {
                   <ul className="space-y-2">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-sm text-gray-700">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                        <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
                         {feature}
                       </li>
                     ))}
@@ -249,7 +284,7 @@ const IndustrialAutomation = () => {
         </div>
       </section>
 
-      {/* Industries Section */}
+      {/* Robot Types Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -260,15 +295,15 @@ const IndustrialAutomation = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Industries We Serve
+              Robot Types & Configurations
             </h2>
             <p className="text-lg text-gray-600">
-              Delivering automation solutions across diverse industrial sectors
+              Diverse robotic solutions tailored to specific industrial applications
             </p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {industries.map((industry, index) => (
+            {robotTypes.map((robot, index) => (
               <motion.div
                 key={index}
                 className="relative bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 group"
@@ -279,10 +314,10 @@ const IndustrialAutomation = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 {/* Background Image */}
-                <div className="relative h-32 overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
                   <motion.img
-                    src={industry.image}
-                    alt={industry.name}
+                    src={robot.image}
+                    alt={robot.name}
                     className="w-full h-full object-cover"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.4 }}
@@ -296,11 +331,14 @@ const IndustrialAutomation = () => {
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
                     >
-                      {industry.icon}
+                      {robot.icon}
                     </motion.div>
-                    <h3 className="font-semibold text-white text-sm group-hover:text-yellow-300 transition-colors duration-300">
-                      {industry.name}
+                    <h3 className="font-semibold text-white text-sm group-hover:text-yellow-300 transition-colors duration-300 mb-1">
+                      {robot.name}
                     </h3>
+                    <p className="text-xs text-gray-200 group-hover:text-gray-100 transition-colors duration-300">
+                      {robot.description}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -309,7 +347,7 @@ const IndustrialAutomation = () => {
         </div>
       </section>
 
-      {/* Technologies Section */}
+      {/* Applications Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -320,10 +358,56 @@ const IndustrialAutomation = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Technologies & Platforms
+              Industry Applications
             </h2>
             <p className="text-lg text-gray-600">
-              Working with industry-leading automation technologies and platforms
+              Robotic automation solutions across diverse manufacturing sectors
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {applications.map((app, index) => (
+              <motion.div
+                key={index}
+                className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg p-6 border border-purple-200 hover:shadow-lg transition-shadow duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+              >
+                <div className="text-4xl mb-4 text-center">{app.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{app.title}</h3>
+                <p className="text-gray-600 mb-4">{app.description}</p>
+                <ul className="space-y-2">
+                  {app.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center text-sm text-gray-700">
+                      <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Robot Brands Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Robot Brands & Models
+            </h2>
+            <p className="text-lg text-gray-600">
+              Working with world-leading robotic manufacturers and platforms
             </p>
           </motion.div>
 
@@ -334,18 +418,18 @@ const IndustrialAutomation = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            {technologies.map((tech, index) => (
+            {robotBrands.map((brand, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 text-center border border-blue-200"
+                className="bg-gradient-to-r from-purple-50 to-blue-100 rounded-lg p-4 text-center border border-purple-200"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 whileHover={{ 
                   scale: 1.05, 
-                  backgroundColor: '#dbeafe',
+                  backgroundColor: '#e0e7ff',
                   y: -5,
-                  boxShadow: '0 10px 25px rgba(59, 130, 246, 0.15)',
+                  boxShadow: '0 10px 25px rgba(139, 92, 246, 0.15)',
                   transition: { duration: 0.3 }
                 }}
                 animate={{ 
@@ -362,7 +446,7 @@ const IndustrialAutomation = () => {
                   opacity: { duration: 0.5, delay: index * 0.05 }
                 }}
               >
-                <span className="text-blue-800 font-medium">{tech}</span>
+                <span className="text-purple-800 font-medium">{brand}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -375,12 +459,12 @@ const IndustrialAutomation = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{ 
-            backgroundImage: 'url(https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)'
+            backgroundImage: 'url(https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)'
           }}
         />
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/90 to-blue-700/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 via-purple-800/90 to-blue-700/90" />
         
         {/* Animated Geometric Shapes */}
         <div className="absolute inset-0 overflow-hidden">
@@ -409,10 +493,10 @@ const IndustrialAutomation = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Automate Your Industrial Processes?
+              Ready to Transform Your Manufacturing with Robotics?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Let our automation experts help you design and implement the perfect solution for your industry.
+            <p className="text-xl text-purple-100 mb-8">
+              Let our robotic automation experts design and implement the perfect robotic solution for your production needs.
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mx-auto max-w-md">
               <p className="text-white text-lg mb-2">
@@ -432,4 +516,4 @@ const IndustrialAutomation = () => {
   )
 }
 
-export default IndustrialAutomation
+export default RoboticAutomation

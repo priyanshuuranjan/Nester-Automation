@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -38,16 +39,18 @@ const Footer = () => {
               <li><a href="#services" className="text-gray-300 hover:text-white transition duration-300">Services</a></li>
               <li><a href="#values" className="text-gray-300 hover:text-white transition duration-300">Core Values</a></li>
               <li><a href="#clients" className="text-gray-300 hover:text-white transition duration-300">Clients</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition duration-300">Careers</a></li>
+              <li><Link to="/career" className="text-gray-300 hover:text-white transition duration-300">Careers</Link></li>
             </ul>
           </div>
 
           {/* Policies */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Policies</h4>
+            <h4 className="text-lg font-semibold mb-4">Legal</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition duration-300">Terms of Use</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition duration-300">Privacy Policy</a></li>
+              <li><Link to="/terms-of-use" className="text-gray-300 hover:text-white transition duration-300">Terms of Use</Link></li>
+              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition duration-300">Privacy Policy</Link></li>
+              <li><Link to="/contact" className="text-gray-300 hover:text-white transition duration-300">Contact Us</Link></li>
+              <li><a href="mailto:legal@nesterautomation.com" className="text-gray-300 hover:text-white transition duration-300">Legal Inquiries</a></li>
             </ul>
           </div>
         </div>
@@ -81,8 +84,17 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
           <p className="text-gray-400">
-            Copyright © 2025 Nester Automation India Private Limited
+            Copyright © 2025 Nester Automation India Private Limited. All rights reserved.
           </p>
+          <div className="mt-2 flex justify-center space-x-4 text-sm">
+            <Link to="/terms-of-use" className="text-gray-400 hover:text-white transition duration-300">
+              Terms of Use
+            </Link>
+            <span className="text-gray-600">|</span>
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition duration-300">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

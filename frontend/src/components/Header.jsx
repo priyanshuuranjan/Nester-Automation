@@ -9,6 +9,7 @@ const Header = () => {
 
   const projectSections = [
     { name: 'Industrial Automation', href: '/industrial-automation' },
+    { name: 'Robotic Automation', href: '/robotic-automation' },
     { name: 'Control Panel Manufacture', href: '/control-panel-manufacture' },
     { name: 'Mechanical Designing & Manufacture', href: '/mechanical-designing-manufacture' }
   ]
@@ -49,16 +50,16 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <button onClick={() => handleSectionClick('home')} className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">Home</button>
-              <button onClick={() => handleSectionClick('about')} className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">About Us</button>
+            <div className="ml-10 flex items-baseline space-x-4">
+              <button onClick={() => handleSectionClick('home')} className="text-gray-700 hover:text-primary px-2 py-2 text-sm font-medium">Home</button>
+              <button onClick={() => handleSectionClick('about')} className="text-gray-700 hover:text-primary px-2 py-2 text-sm font-medium">About Us</button>
               
               {/* Services Dropdown */}
               <div className="relative">
                 <button
                   onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
                   onMouseEnter={() => setIsServicesDropdownOpen(true)}
-                  className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium flex items-center space-x-1"
+                  className="text-gray-700 hover:text-primary px-2 py-2 text-sm font-medium flex items-center space-x-1"
                 >
                   <span>Services</span>
                   <svg className={`w-4 h-4 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,7 +100,7 @@ const Header = () => {
                 <button
                   onClick={() => setIsProjectsDropdownOpen(!isProjectsDropdownOpen)}
                   onMouseEnter={() => setIsProjectsDropdownOpen(true)}
-                  className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium flex items-center space-x-1"
+                  className="text-gray-700 hover:text-primary px-2 py-2 text-sm font-medium flex items-center space-x-1"
                 >
                   <span>Projects</span>
                   <svg className={`w-4 h-4 transition-transform duration-200 ${isProjectsDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,9 +130,11 @@ const Header = () => {
                 )}
               </div>
               
-              <button onClick={() => handleSectionClick('values')} className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">Core Values</button>
-              <button onClick={() => handleSectionClick('clients')} className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium">Clients</button>
-              <Link to="/contact" className="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition duration-300">
+              <button onClick={() => handleSectionClick('values')} className="text-gray-700 hover:text-primary px-2 py-2 text-sm font-medium">Core Values</button>
+              <button onClick={() => handleSectionClick('clients')} className="text-gray-700 hover:text-primary px-2 py-2 text-sm font-medium">Clients</button>
+              <Link to="/gallery" className="text-gray-700 hover:text-primary px-2 py-2 text-sm font-medium">Gallery</Link>
+              <Link to="/career" className="text-gray-700 hover:text-primary px-2 py-2 text-sm font-medium">Career</Link>
+              <Link to="/contact" className="bg-primary text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition duration-300">
                 Contact Us
               </Link>
             </div>
@@ -192,6 +195,8 @@ const Header = () => {
               
               <button onClick={() => handleSectionClick('values')} className="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium w-full text-left">Core Values</button>
               <button onClick={() => handleSectionClick('clients')} className="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium w-full text-left">Clients</button>
+              <Link to="/gallery" className="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium w-full text-left" onClick={() => setIsMenuOpen(false)}>Gallery</Link>
+              <Link to="/career" className="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium w-full text-left" onClick={() => setIsMenuOpen(false)}>Career</Link>
               <Link to="/contact" className="bg-primary text-white block px-3 py-2 text-base font-medium rounded-md text-left transition duration-300" onClick={() => setIsMenuOpen(false)}>
                 Contact Us
               </Link>
